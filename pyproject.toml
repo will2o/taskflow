@@ -26,6 +26,9 @@ include = ["app*"]
 [tool.pytest.ini_options]
 testpaths = ["tests"]
 addopts = "-q"
+# Starlette annonce la migration de son TestClient vers httpx2 ; sans effet sur les tests.
+# À lever quand httpx2 aura remplacé httpx dans les dépendances de dev.
+filterwarnings = ["ignore:Using `httpx` with `starlette.testclient` is deprecated"]
 
 [tool.ruff]
 line-length = 100
